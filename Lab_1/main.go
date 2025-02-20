@@ -50,7 +50,7 @@ func main() {
 			return
 		}
 		splitline = strings.Split(strings.TrimSpace(line), " ")
-		if len(splitline) != size {
+п		if len(splitline) != size {
 			fmt.Printf("Длина %d строки матрицы некорректна\n", i+1)
 		}
 		for j := 0; j < size; j++ {
