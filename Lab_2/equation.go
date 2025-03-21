@@ -18,7 +18,7 @@ func GetEquation(number int) (*Equation, error) {
 	switch number {
 	case 1:
 		{
-			roots := []float64{1.15624, 0.629971, 2.41627}
+			roots := []float64{-1.15624, 0.629971, 2.41627}
 			fn := func(x float64) float64 {
 				return math.Pow(x, 3.0) - 1.89*math.Pow(x, 2.0) - 2.0*x + 1.76
 			}

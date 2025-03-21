@@ -9,6 +9,7 @@ type SystemEquation struct {
 	diff12 func(float64, float64) float64
 	diff21 func(float64, float64) float64
 	diff22 func(float64, float64) float64
+	roots  [][]float64
 }
 
 func GetSystemEquation(number int) (*SystemEquation, error) {
@@ -33,7 +34,7 @@ func GetSystemEquation(number int) (*SystemEquation, error) {
 			diff22 := func(x float64, y float64) float64 {
 				return 4 * y
 			}
-			return &SystemEquation{fn1, fn2, diff11, diff12, diff21, diff22}, nil
+			return &SystemEquation{fn1, fn2, diff11, diff12, diff21, diff22, [][]float64{[]float64{0.664, 0.624}, []float64{-0.662, -0.624}}}, nil
 		}
 	case 2:
 		{
@@ -55,7 +56,7 @@ func GetSystemEquation(number int) (*SystemEquation, error) {
 			diff22 := func(x float64, y float64) float64 {
 				return 2
 			}
-			return &SystemEquation{fn1, fn2, diff11, diff12, diff21, diff22}, nil
+			return &SystemEquation{fn1, fn2, diff11, diff12, diff21, diff22, [][]float64{[]float64{-0.87, 0.49}}}, nil
 		}
 	}
 	return nil, nil
@@ -63,11 +64,9 @@ func GetSystemEquation(number int) (*SystemEquation, error) {
 
 func GetSysEqMap() map[int]string {
 	return map[int]string{
-		1: "| tg(xy) = x^2\n" +
-			"<\n" +
+		1: "\n| tg(xy) = x^2\n" +
 			"| 0.5x^2 + 2y^2 = 1",
-		2: "| x + sin(y) = -0.4\n" +
-			"<\n" +
+		2: "\n| x + sin(y) = -0.4\n" +
 			"| 2y - cos(x + 1) = 0",
 	}
 }

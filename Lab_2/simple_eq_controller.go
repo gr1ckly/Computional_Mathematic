@@ -141,7 +141,7 @@ func handleNewton(reader *bufio.Reader, writer *bufio.Writer, eq *Equation, isFi
 		if err != nil {
 			return err
 		}
-		res, iter, err := Bisection(eq, a, b, eps)
+		res, iter, err := Newton(eq, (a+b)/2, eps)
 		if err != nil {
 			return err
 		}
