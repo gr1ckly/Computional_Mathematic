@@ -28,7 +28,6 @@ func Bisection(eq *Equation, a, b, eps float64) (float64, int, error) {
 func Newton(eq *Equation, x0, eps float64) (float64, int, error) {
 	x := x0
 	iterations := 0
-
 	for math.Abs(eq.fn(x)) > eps {
 		if eq.diff(x) == 0 {
 			return 0, 0, errors.New("Производная равна нулю, метод не применим")
