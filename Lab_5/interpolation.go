@@ -1,7 +1,5 @@
 package main
 
-import "math"
-
 func LagrangeInterpolation(points []Point, x float64) float64 {
 	ans := 0.0
 	for i := 0; i < len(points); i++ {
@@ -34,15 +32,7 @@ func GaussInterpolation(points []Point, x0 float64) float64 {
 	ans := table[len(points)/2][0]
 	curr := 1.0
 	fact := 1.0
-	center := 0
-	minDist := math.Abs(points[0].X - x0)
-	for i := 1; i < len(points); i++ {
-		if d := math.Abs(points[i].X - x0); d < minDist {
-			minDist = d
-			center = i
-		}
-	}
-	isForward := x0 >= points[center].X
+	isForward := x0 >= points[len(points)/2].X
 	for i := 1; i < len(points); i++ {
 		var idx int
 		fact *= float64(i)
